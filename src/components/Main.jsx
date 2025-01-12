@@ -1,6 +1,6 @@
 import React from "react"
-import IngredientsList from "./components/IngredientsList"
-import ClaudeRecipe from "./components/ClaudeRecipe"
+import IngredientsList from "./IngredientsList.jsx"
+import ClaudeRecipe from "./ClaudeRecipe.jsx"
 import { getRecipeFromMistral } from "../ai.js"
 
 export default function Main() {
