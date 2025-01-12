@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function IngredientsList(props) {
     const ingredientsListItems = props.ingredients.map(ingredient => (
         <li key={ingredient}>{ingredient}</li>
@@ -16,3 +18,8 @@ export default function IngredientsList(props) {
         </section>
     )
 }
+
+IngredientsList.propTypes = {
+    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+    getRecipe: PropTypes.func.isRequired
+};
