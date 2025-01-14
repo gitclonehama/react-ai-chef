@@ -24,6 +24,12 @@ export default function Main() {
 
     return (
         <main>
+            <p className="explainer">
+                Please add available ingredients below, 
+                keep in mind you need to add at least 3 items 
+                before a suggestion can be generated.
+            </p>
+
             <Form addIngredient={addIngredient}  />
 
             {ingredients.length > 0 &&
