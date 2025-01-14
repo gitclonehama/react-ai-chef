@@ -1,6 +1,7 @@
 import React from "react"
 import IngredientsList from "./IngredientsList.jsx"
 import ClaudeRecipe from "./ClaudeRecipe.jsx"
+import Form from "./Form.jsx"
 import { getRecipeFromMistral } from "../ai.js"
 
 export default function Main() {
@@ -23,15 +24,7 @@ export default function Main() {
 
     return (
         <main>
-            <form onSubmit={addIngredient} className="add-ingredient-form">
-                <input
-                    type="text"
-                    placeholder="e.g. oregano"
-                    aria-label="Add ingredient"
-                    name="ingredient"
-                />
-                <button>Add ingredient</button>
-            </form>
+            <Form addIngredient={addIngredient}  />
 
             {ingredients.length > 0 &&
                 <IngredientsList
