@@ -1,4 +1,5 @@
 import React from "react"
+import Loader from "./Loading.jsx"
 import IngredientsList from "./IngredientsList.jsx"
 import ClaudeRecipe from "./ClaudeRecipe.jsx"
 import Form from "./Form.jsx"
@@ -7,10 +8,13 @@ import { getRecipeFromMistral } from "../ai.js"
 export default function Main() {
     const [ingredients, setIngredients] = React.useState([])
     const [recipe, setRecipe] = React.useState("")
+    const [showLoader, setShowLoader] = React.useState(true)
 
     async function getRecipe() {
+        setShowLoader(true)
         const recipeMarkdown = await getRecipeFromMistral(ingredients)
         setRecipe(recipeMarkdown)
+        setShowLoader(false)
     }
 
     function addIngredient(event) {
@@ -38,6 +42,8 @@ export default function Main() {
                     getRecipe={getRecipe}
                 />
             }
+
+            {showLoader && <Loader />}
 
             {recipe && <ClaudeRecipe recipe={recipe} />}
         </main>
